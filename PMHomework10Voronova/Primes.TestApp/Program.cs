@@ -28,7 +28,7 @@ namespace PrimesTestApp
 
                 await testing.TestIsPrimesEndpoint("/primes?from=-5&to=1", 200);
 
-                await testing.TestIsPrimesEndpoint("/primes?to=abc", 400);
+                await testing.TestIsPrimesEndpoint("/primes?to=abcd", 400);
 
                 Console.ReadKey();
             }

@@ -1,8 +1,5 @@
-﻿using PrimesTestApp.Models;
-using System;
-using System.IO;
+﻿using System;
 using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace PrimesTestApp.Tests
@@ -20,6 +17,7 @@ namespace PrimesTestApp.Tests
         {
             var response = await _httpClient.GetAsync(query);
             var content = await response.Content.ReadAsStringAsync();
+
             if (query == "/" || !query.Contains('?'))
                 ConsoleWriteResponce(query, expectedStatusCode, (int)response.StatusCode, null);
             else
@@ -32,10 +30,12 @@ namespace PrimesTestApp.Tests
             Console.WriteLine($"\n Request              : {testResult.Request}");
             Console.WriteLine($" Expected Status Code : {testResult.ExpectedStatusCode}");
             Console.WriteLine($" Actual Status Code   : {testResult.ActualStatusCode}");
+
             if (content != null && testResult.ActualStatusCode == 200)
                 Console.WriteLine($" Response             : {content}");
-            else if (content != null)
+            else if (content != null && testResult.ActualStatusCode == 400)
                 Console.WriteLine($" Response             : {content.Split("errors")[2].Replace("[", "").Replace("\"", "").Replace("{", "").Replace("]", "").Replace("}", "").Remove(0,1)} ");
+            
             WriteResult(testResult.IsSucceeded);
         }
 

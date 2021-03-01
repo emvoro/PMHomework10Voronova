@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PrimesTestApp.Tests
+﻿namespace PrimesTestApp.Tests
 {
     public class TestResult
     {

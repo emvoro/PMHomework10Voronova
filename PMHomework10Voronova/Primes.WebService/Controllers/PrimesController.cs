@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PrimesWebService.Services;
-using System;
 using System.Net;
 using System.Threading.Tasks;
 

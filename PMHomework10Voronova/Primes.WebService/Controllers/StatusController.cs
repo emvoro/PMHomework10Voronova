@@ -4,7 +4,6 @@ using System.Net;
 namespace Primes.WebService.Controllers
 {
     [ApiController]
-    //[Route("[controller]")]
     public class StatusController : ControllerBase
     {
         [HttpGet("/")]
